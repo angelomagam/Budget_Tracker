@@ -1,0 +1,44 @@
+{% extends "template.html" %}
+{% block content %}
+
+  <!--==========================
+  Header
+  ============================-->
+<header id="hero" class="hero">
+    <div class="flex-container w-container">
+      <div id="logo" class="centered-container">
+        <h1>Add an expense</h1>
+      </div>
+    </div>
+    <!-- Button below the text -->
+    <nav id="centered" class="centered-container">
+        <ul class="flex-container w-container">
+          <li><a href="{{ url_for('addExpenses') }}" class="button-8 w-button">Add an Expense</a></li>
+        </ul>
+    </nav>
+</header>
+  <!--==========================
+  Feature Section
+  ============================-->
+  <section id="flex-container" class="flex-container">
+    <div class=".flex-container">
+      <div>
+        <h2>Track your expenses</h2>
+        <p>
+
+          In total, you have spent ${{ expenses }} so far.<br>
+
+        </p>
+      </div>
+      <div>
+        <h2>By category</h2>
+        <p>
+          {% for category, total_expense in expensesByCategory %}
+            {{ category }}: US${{ total_expense }}<br>
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

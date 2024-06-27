@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+{% block content %}
+
+<header id="hero" class="hero">
+    <a href="{{ url_for('index') }}" class="button-8 w-button">Back to Homepage</a>
+
+    <br><br><br>
+
+    <div class="flex-container w-container">
+        <div>
+            <form method="post">
+                {{ form.csrf_token() }}
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" class="form-control" placeholder="Enter description" required>
+                <br>
+                <label for="category">Category:</label>
+                <select id="category" name="category" class="form-control" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="electricity">Electricity</option>
+                    <option value="gas">Gas</option>
+                    <option value="water">Water</option>
+                    <option value="internet">Internet</option>
+                    <option value="insurance">Insurance</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="college">College</option>
+                    <option value="party">Party</option>
+                    <option value="other">Other</option>
+                </select>
+                <br>
+                <label for="cost">Cost:</label>
+                <input type="number" id="cost" name="cost" class="form-control" placeholder="Enter cost" required>
+                <br>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" class="form-control" required>
+                <br>
+                <input value="Submit" class="button-8 w-button" type="submit">
+            </form>
+        </div>
+    </div>
+</header>
+
+{% endblock %}
